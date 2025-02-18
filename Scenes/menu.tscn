@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://qvtyya4euqsp"]
+
+[ext_resource type="FontFile" uid="uid://b5w46yu4273kb" path="res://Assets/Font/kenvector_future.ttf" id="1_bcqx3"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_fp0ql"]
+[ext_resource type="Texture2D" uid="uid://c6d3u25x2drbs" path="res://Assets/PNG/blue_button04.png" id="2_2heyg"]
+[ext_resource type="Texture2D" uid="uid://dcg7py3nnvd1h" path="res://Assets/PNG/blue_button05.png" id="3_oivi7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ijhy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p1six"]
+texture = ExtResource("2_2heyg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nrpoh"]
+texture = ExtResource("3_oivi7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmdif"]
+texture = ExtResource("2_2heyg")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fp0ql")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -485.5
+offset_top = -79.5
+offset_right = 485.5
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_bcqx3")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxTexture_1ijhy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p1six")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nrpoh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xmdif")
+text = "Play"
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -181.5
+offset_top = 106.0
+offset_right = 181.5
+offset_bottom = 158.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_bcqx3")
+theme_override_font_sizes/font_size = 75
+text = "Clicker Game
+"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

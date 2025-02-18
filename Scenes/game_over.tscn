@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://ct1xacrh5gc8p"]
+
+[ext_resource type="FontFile" uid="uid://b5w46yu4273kb" path="res://Assets/Font/kenvector_future.ttf" id="1_ahddd"]
+[ext_resource type="Script" path="res://Scripts/lose.gd" id="1_fh426"]
+[ext_resource type="Texture2D" uid="uid://c6d3u25x2drbs" path="res://Assets/PNG/blue_button04.png" id="2_bi7cl"]
+[ext_resource type="Texture2D" uid="uid://dcg7py3nnvd1h" path="res://Assets/PNG/blue_button05.png" id="3_3sneg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6tfs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1wdyc"]
+texture = ExtResource("2_bi7cl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01i2m"]
+texture = ExtResource("3_3sneg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yif4t"]
+texture = ExtResource("2_bi7cl")
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fh426")
+
+[node name="YouLooseLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -268.5
+offset_top = 30.0
+offset_right = 268.5
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_ahddd")
+theme_override_font_sizes/font_size = 75
+text = "Game Over"
+
+[node name="PlayAgainButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -490.0
+offset_top = -194.0
+offset_right = -56.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_ahddd")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxTexture_n6tfs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1wdyc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_01i2m")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yif4t")
+text = "Again?"
+
+[node name="HomeButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 58.0
+offset_top = -194.0
+offset_right = 492.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_ahddd")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxTexture_n6tfs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1wdyc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_01i2m")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yif4t")
+text = "Home"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -83.0
+offset_right = 371.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ahddd")
+theme_override_font_sizes/font_size = 65
+text = "Your Score is: 00"
+
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]
